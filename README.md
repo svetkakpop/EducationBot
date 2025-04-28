@@ -7,7 +7,7 @@ Education bot for courses in university with possibility to choose them accordin
 Clone the repository using the following command:
 
 ```bash
-git clone [https://github.com/svetkakpop/EducationBot.git](https://github.com/svetkakpop/EducationBot.git)
+git clone https://github.com/svetkakpop/EducationBot.git
 ```
 
 # Install wsl if you still dont have it
