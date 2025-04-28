@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: education_bot
+      POSTGRES_USER: bot_user
+      POSTGRES_PASSWORD: bot_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bot_user -d education_bot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - redis_data:/data
+
+  bot:
+    build: .
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=education_bot
+      - DB_USER=bot_user
+      - DB_PASSWORD=bot_password
+      - REDIS_HOST=redis
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - SUPPORT_CHAT_ID=${SUPPORT_CHAT_ID}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
