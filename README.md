@@ -6,7 +6,11 @@ Education bot for courses in university with possibility to choose them accordin
 ```bash
 wsl --install
 ```
+then start using wsl 
 
+```bash
+wsl
+```
 ## Download the git repository
 
 Clone the repository using the following command:
