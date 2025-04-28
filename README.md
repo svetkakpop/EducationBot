@@ -2,6 +2,11 @@
 
 Education bot for courses in university with possibility to choose them according to some filters.
 
+# Install wsl if you still dont have it
+```bash
+wsl --install
+```
+
 ## Download the git repository
 
 Clone the repository using the following command:
@@ -10,10 +15,6 @@ Clone the repository using the following command:
 git clone https://github.com/svetkakpop/EducationBot.git
 ```
 
-# Install wsl if you still dont have it
-```bash
-wsl --install
-```
 
 # Go to the folder with this project
 ```bash
