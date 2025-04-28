@@ -30,3 +30,7 @@ docker-compose up -d
 ```bash
 docker-compose down -v
 ```
+# To see logs
+```bash
+docker-compose logs -f bot
+```
